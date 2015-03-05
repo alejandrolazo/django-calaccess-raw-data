@@ -4,9 +4,6 @@ from .base import CalAccessBaseModel
 
 
 class AcronymsCd(CalAccessBaseModel):
-    """
-    Contains acronyms and their meaning. 
-    """
     acronym = models.CharField(max_length=40, db_column="ACRONYM")
     stands_for = models.CharField(max_length=4, db_column="STANDS_FOR")
     effect_dt = models.DateField(db_column="EFFECT_DT", null=True)
@@ -437,6 +434,9 @@ class HeaderCd(CalAccessBaseModel):
 
 
 class HdrCd(CalAccessBaseModel):
+    """
+    Electronic filing record header data
+    """
     amend_id = models.IntegerField(db_column='AMEND_ID')
     cal_ver = models.CharField(max_length=4L, db_column='CAL_VER', blank=True)
     ef_type = models.CharField(max_length=3L, db_column='EF_TYPE', blank=True)
@@ -999,6 +999,9 @@ class LookupCode(CalAccessBaseModel):
 
 
 class NamesCd(CalAccessBaseModel):
+    """
+    This table is used for name searches where the entity has an identification number. This table is not unique.
+    """
     namid = models.IntegerField(db_column='NAMID')
     naml = models.CharField(max_length=200L, db_column='NAML')
     namf = models.CharField(max_length=50L, db_column='NAMF')
